@@ -9,3 +9,8 @@ export async function createTodo(userId: number, description: string, dueDate: D
     const [{insertId: todoId}] = await sql.execute('INSERT INTO todos (userId, description, dueDate) VALUES (?, ?, ?)', [userId, description, dueDate]);
     return todoId;
 }
+
+export async function deleteTodo(todoId: number, userId: number): Promise<boolean> {
+    const [result] = await sql.execute('DELETE FROM todos WHERE id = ? AND userId = ?', [todoId, userId]);
+    return result.affectedRows > 0;
+}

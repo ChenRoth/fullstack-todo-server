@@ -14,3 +14,8 @@ export async function deleteTodo(todoId: number, userId: number): Promise<boolea
     const [result] = await sql.execute('DELETE FROM todos WHERE id = ? AND userId = ?', [todoId, userId]);
     return result.affectedRows > 0;
 }
+
+export async function toggleComplete(todoId: number, userId: number): Promise<boolean> {
+    const [result] = await sql.execute('UPDATE todos SET complete = NOT complete WHERE id = ? AND userId = ?', [todoId, userId]);
+    return result.affectedRows > 0;
+}

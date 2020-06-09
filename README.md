@@ -14,6 +14,9 @@ TODO API node server with MySQL
 ## Testing API in Postman
 
 You may import `TODO API.postman_collection.json` into your Postman
+
 This will add a collection to your Postman, which has all the types of API requests you can make
+
 To set the authorization, right-click on the collection > Edit > Authorization > Bearer Token
+
 (this token will be used for the whole collection automatically where needed) 

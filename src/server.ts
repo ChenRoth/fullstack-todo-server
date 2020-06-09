@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import expressJwt from 'express-jwt';
 import { usersRouter } from './routers/usersRouter';
+import { todosRouter } from './routers/todosRouter';
 
 const PORT = 4000;
 
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
     res.send('Hi there!');
 })
 
+app.use('/todos', todosRouter);
 app.use('/users', usersRouter);
 
 app.listen(PORT, () => console.log(`Server is up at ${PORT}`));

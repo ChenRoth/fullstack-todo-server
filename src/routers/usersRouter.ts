@@ -15,7 +15,8 @@ usersRouter.post('/register', validateSchema(registerSchema), async (req, res) =
     if (!userId) {
         return res.status(403).send(`user ${username} already exists`);
     }
-    res.send({ userId });
+    const token = jwt.sign({ userId }, JWT_SECRET);
+    res.send({token});
 });
 
 usersRouter.post('/login', validateSchema(loginSchema), async (req, res) => {

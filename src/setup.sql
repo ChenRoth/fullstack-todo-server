@@ -9,12 +9,12 @@ CREATE TABLE users (
   primary key (id)
 );
 
-CREATE TABLE `todo`.`todos` todos(
+CREATE TABLE todos(
   id INT NOT NULL AUTO_INCREMENT,
   description VARCHAR(200) NOT NULL,
   dueDate DATETIME NOT NULL,
   creationDate DATETIME NOT NULL DEFAULT now(),
   complete TINYINT NOT NULL DEFAULT 0,
-  userId INT NULL,users
+  userId INT NULL,
   PRIMARY KEY (id))
 ENGINE = InnoDB;
